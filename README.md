@@ -6,15 +6,23 @@ A modern, production-ready job board web application built with React.js and Vit
 
 ## Live Demo
 
-🔗 **[hireboard.vercel.app](https://hireboard.vercel.app)** *(replace with your Vercel URL after deployment)*
+🔗 **[hire-board-omega.vercel.app](https://hire-board-omega.vercel.app)**
 
 ---
 
 ## Screenshots
 
-| Landing Page | Job Search | Job Details | Saved Jobs |
-|---|---|---|---|
-| *(Add screenshots after deployment)* | | | |
+### Landing Page
+![Landing Page](https://github.com/user-attachments/assets/a2eae5bf-61fe-4c8a-8bfa-d9935102c6c4)
+
+### Job Search
+![Job Search](https://github.com/user-attachments/assets/75c48d06-3f32-4535-9553-eb513f28794a)
+
+### Job Details
+![Job Details](https://github.com/user-attachments/assets/4aee3a28-54c7-4e8e-ac9c-4cb897c383ac)
+
+### Saved Jobs
+![Saved Jobs](https://github.com/user-attachments/assets/f4fc81ae-990a-4064-b495-669116d50ac2)
 
 ---
 
