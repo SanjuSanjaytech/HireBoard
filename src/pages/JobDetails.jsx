@@ -27,7 +27,15 @@ export default function JobDetails() {
       })
       .catch(() => { setError('Failed to load job details'); setLoading(false) })
 
-    getSimilarJobs(id).then(d => setSimilar(d.data?.slice(0, 4) || [])).catch(() => {})
+        if (!id.startsWith('mock-')) {
+            getSimilarJobs(id)
+              .then(d =>
+                setSimilar(
+                  d.data?.slice(0, 4) || []
+                )
+              )
+              .catch(() => {})
+      }
   }, [id])
 
   if (loading) return (

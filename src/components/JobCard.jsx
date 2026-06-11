@@ -2,6 +2,7 @@ import { Bookmark, MapPin, Clock, Building2, ExternalLink } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useSaved } from '../context/SavedContext'
 import { timeAgo, formatSalary, employmentBadgeColor, formatEmploymentType } from '../utils/helpers'
+import toast from 'react-hot-toast'
 
 export default function JobCard({ job }) {
   const { toggle, isSaved } = useSaved()
@@ -37,7 +38,13 @@ export default function JobCard({ job }) {
 
         {/* Save button */}
         <button
-          onClick={() => toggle(job)}
+          onClick={() => {
+            const saving = !isSaved(job.job_id)
+            toggle(job)
+            toast.success(saving ? 'Job saved!' : 'Removed from saved', {
+              icon: saving ? '🔖' : '🗑️',
+            })
+          }}
           className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
             saved
               ? 'bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400'

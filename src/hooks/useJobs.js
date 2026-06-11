@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { searchJobs } from '../services/jobService'
+import { toast } from "react-hot-toast";
 
 export function useJobs() {
   const [jobs, setJobs] = useState([])
@@ -12,9 +13,21 @@ export function useJobs() {
   const fetch = useCallback(async (params, reset = true) => {
     setLoading(true)
     setError(null)
-    const p = reset ? 1 : page
-    try {
-      const data = await searchJobs({ ...params, page: p })
+          const p = reset ? 1 : page
+              try {
+                const data = await searchJobs({
+            ...params,
+            page: p,
+          });
+
+          if (data.fallback) {
+            toast(
+              'Live API temporarily unavailable. Showing demo jobs.',
+              {
+                icon: "⚠️",
+              }
+            );
+          }
       const results = data.data || []
       setJobs(prev => reset ? results : [...prev, ...results])
       setHasMore(results.length === 10)
