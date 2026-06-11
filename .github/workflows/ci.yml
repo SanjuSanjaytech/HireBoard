@@ -1,0 +1,50 @@
+name: CI/CD — Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Install, Lint & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint check
+        run: npm run lint
+
+      - name: Build production bundle
+        run: npm run build
+        env:
+          VITE_JSEARCH_API_KEY: ${{ secrets.VITE_JSEARCH_API_KEY }}
+
+      - name: Verify build output
+        run: |
+          if [ -d "dist" ]; then
+            echo "✅ Build successful — dist/ folder exists"
+            ls -lh dist/
+          else
+            echo "❌ Build failed — dist/ folder not found"
+            exit 1
+          fi
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: dist/
+          retention-days: 7
