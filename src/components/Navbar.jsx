@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Briefcase, Bookmark, Sun, Moon, Menu, X } from 'lucide-react'
+import { Briefcase, Sun, Moon, Menu, X } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 import { useSaved } from '../context/SavedContext'
 import { useState } from 'react'

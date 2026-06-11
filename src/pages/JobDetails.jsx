@@ -4,7 +4,7 @@ import { ArrowLeft, MapPin, Clock, Building2, ExternalLink, Bookmark, CheckCircl
 import toast from 'react-hot-toast'
 import { getJobDetails, getSimilarJobs } from '../services/jobService'
 import { useSaved } from '../context/SavedContext'
-import { JobDetailSkeleton, JobCardSkeleton } from '../components/LoadingSkeleton'
+import { JobDetailSkeleton} from '../components/LoadingSkeleton'
 import JobCard from '../components/JobCard'
 import { timeAgo, formatSalary, formatEmploymentType, employmentBadgeColor } from '../utils/helpers'
 
