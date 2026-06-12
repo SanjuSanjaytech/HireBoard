@@ -39,7 +39,7 @@ A modern, production-ready job board web application built with React.js and Vit
 - **Empty & error states** — clear user guidance
 - **Fully responsive** — mobile, tablet, desktop
 - **CI/CD pipeline** — GitHub Actions → Vercel
-
+- **API fallback system** — automatically switches to mock data on rate limits (429) or API downtime, with toast notifications informing users
 ---
 
 ## Tech Stack
@@ -61,6 +61,7 @@ A modern, production-ready job board web application built with React.js and Vit
 ## Folder Structure
 
 ```
+src/
 src/
 ├── components/        # Reusable UI components
 │   ├── Navbar.jsx
@@ -85,7 +86,8 @@ src/
 ├── context/           # React context providers
 │   ├── ThemeContext.jsx
 │   └── SavedContext.jsx
-├── assets/            # Static assets
+├── data/              # Static mock data for API fallback
+│   └── mockJobs.js        
 └── App.jsx
 ```
 
