@@ -1,5 +1,17 @@
 import { Link } from 'react-router-dom'
-import { Briefcase, Github, Twitter, Linkedin } from 'lucide-react'
+import { Briefcase, Github, Linkedin } from 'lucide-react'
+
+
+const socials = [
+  {
+    icon: Github,
+    href: 'https://github.com/SanjuSanjaytech',
+  },
+  {
+    icon: Linkedin,
+    href: 'https://www.linkedin.com/in/bangaru-sanjay-423b82303',
+  },
+]
 
 export default function Footer() {
   return (
@@ -17,8 +29,14 @@ export default function Footer() {
               Find your next developer role. Real-time job listings powered by JSearch API.
             </p>
             <div className="flex gap-3 mt-4">
-              {[Github, Twitter, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-8 h-8 rounded-lg bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+              {socials.map(({ icon: Icon, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                >
                   <Icon size={15} />
                 </a>
               ))}
