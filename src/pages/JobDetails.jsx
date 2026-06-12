@@ -8,6 +8,7 @@ import { JobDetailSkeleton} from '../components/LoadingSkeleton'
 import JobCard from '../components/JobCard'
 import { timeAgo, formatSalary, formatEmploymentType, employmentBadgeColor } from '../utils/helpers'
 
+
 export default function JobDetails() {
   const { id } = useParams()
   const { toggle, isSaved } = useSaved()
