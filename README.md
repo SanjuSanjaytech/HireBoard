@@ -39,7 +39,7 @@ A modern, production-ready job board web application built with React.js and Vit
 - **Empty & error states** — clear user guidance
 - **Fully responsive** — mobile, tablet, desktop
 - **CI/CD pipeline** — GitHub Actions → Vercel
-- **API fallback system** — automatically switches to mock data on rate limits (429) or API downtime, with toast notifications informing users
+
 ---
 
 ## Tech Stack
@@ -61,7 +61,6 @@ A modern, production-ready job board web application built with React.js and Vit
 ## Folder Structure
 
 ```
-src/
 src/
 ├── components/        # Reusable UI components
 │   ├── Navbar.jsx
@@ -87,7 +86,7 @@ src/
 │   ├── ThemeContext.jsx
 │   └── SavedContext.jsx
 ├── data/              # Static mock data for API fallback
-│   └── mockJobs.js        
+│   └── mockJobs.js 
 └── App.jsx
 ```
 
@@ -105,7 +104,7 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/hireboard.git
+git remote add origin https://github.com/SanjuSanjaytech/HireBoard.git
 cd hireboard
 
 # Install dependencies
@@ -183,6 +182,33 @@ Vercel auto-detects Vite. The `vercel.json` handles SPA routing so direct URL ac
 npm i -g vercel
 vercel --prod
 ```
+
+---
+
+
+## Architecture
+
+The application follows a component-driven architecture with clear separation of concerns:
+
+- **Components** → Reusable UI elements
+- **Pages** → Route-level screens
+- **Services** → API communication layer
+- **Hooks** → Business logic and state handling
+- **Context** → Theme and saved jobs state
+- **Utils** → Helper functions and formatters
+- **Data** → Static mock data for API fallback
+
+This structure improves maintainability, scalability, and developer experience.
+
+---
+
+## Reliability Features
+
+To ensure uninterrupted user experience, the application includes a fallback mechanism.
+
+If the JSearch API becomes unavailable or the RapidAPI quota is exceeded (429 response), the application automatically loads local demo job data and notifies the user through a toast message.
+
+This allows the application to remain fully functional during external API failures.
 
 ---
 
