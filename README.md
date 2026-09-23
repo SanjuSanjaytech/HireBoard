@@ -223,6 +223,8 @@ This allows the application to remain fully functional during external API failu
 
 ---
 
+
+This change was made while practicing the Git feature branch workflow.
 ## Author
 
 **Bangaru Sanjay**
